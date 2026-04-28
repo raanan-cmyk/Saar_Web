@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>מחקר מילות מפתח כיצד למצוא את המילים שמביאות לקוחות | האוס מדיה</title>
+  <meta name="description" content="מדריך מעשי למחקר מילות מפתח: כלים, כוונת חיפוש, long tail keywords ואסטרטגיה שתביא לקוחות אמיתיים דרך גוגל. קראו עכשיו. למידה מעשית עם כלים חינמיים ובתשלום."/>
+  <link rel="canonical" href="https://www.housemedia.co.il/article-keyword-research.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css?v=3"/>
+  <link rel="stylesheet" href="article.css"/>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav" role="navigation" aria-label="ניווט ראשי">
+  <div class="nav__inner">
+
+    <!-- Right: Logo -->
+    <div class="nav__brand">
+      <a href="index.html" class="nav__logo" aria-label="האוס מדיה - דף הבית">
+        <span class="logo-mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="100" r="96" fill="#1A3A1A" stroke="#5B8C5A" stroke-width="1.5"/>
+            <line x1="30" y1="160" x2="30" y2="60" stroke="#5B8C5A" stroke-width="6" stroke-linecap="round" opacity=".4"/>
+            <line x1="40" y1="100" x2="55" y2="88" stroke="#5B8C5A" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+            <line x1="40" y1="128" x2="55" y2="118" stroke="#5B8C5A" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+            <line x1="168" y1="160" x2="168" y2="55" stroke="#5B8C5A" stroke-width="6" stroke-linecap="round" opacity=".4"/>
+            <line x1="158" y1="95" x2="145" y2="84" stroke="#5B8C5A" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+            <line x1="158" y1="122" x2="145" y2="112" stroke="#5B8C5A" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+            <ellipse cx="100" cy="118" rx="38" ry="32" fill="#F8F6F2"/>
+            <circle cx="100" cy="80" r="34" fill="#F8F6F2"/>
+            <circle cx="72" cy="52" r="14" fill="#1A1A1A"/>
+            <circle cx="128" cy="52" r="14" fill="#1A1A1A"/>
+            <circle cx="72" cy="52" r="7" fill="#3A3A3A"/>
+            <circle cx="128" cy="52" r="7" fill="#3A3A3A"/>
+            <ellipse cx="87" cy="78" rx="11" ry="12" fill="#1A1A1A" transform="rotate(-10,87,78)"/>
+            <ellipse cx="113" cy="78" rx="11" ry="12" fill="#1A1A1A" transform="rotate(10,113,78)"/>
+            <circle cx="87" cy="79" r="5" fill="white"/>
+            <circle cx="113" cy="79" r="5" fill="white"/>
+            <circle cx="88.5" cy="78" r="2.5" fill="#0D0D0D"/>
+            <circle cx="114.5" cy="78" r="2.5" fill="#0D0D0D"/>
+            <circle cx="89.5" cy="77" r="1" fill="white"/>
+            <circle cx="115.5" cy="77" r="1" fill="white"/>
+            <ellipse cx="100" cy="89" rx="5" ry="3.5" fill="#1A1A1A"/>
+            <path d="M95 93 Q100 98 105 93" stroke="#1A1A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <ellipse cx="76" cy="112" rx="14" ry="16" fill="#1A1A1A" opacity=".85"/>
+            <ellipse cx="124" cy="112" rx="14" ry="16" fill="#1A1A1A" opacity=".85"/>
+            <path d="M91 118 Q100 110 109 118" stroke="#5B8C5A" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M94 124 Q100 119 106 124" stroke="#5B8C5A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="100" cy="128" r="2.5" fill="#5B8C5A"/>
+            <circle cx="100" cy="100" r="96" fill="none" stroke="#C8A96E" stroke-width=".5" opacity=".5"/>
+          </svg>
+        </span>
+        <span>האוס מדיה</span>
+      </a>
+    </div>
+
+    <!-- Center: Links -->
+    <ul class="nav__links" role="menubar">
+      <li role="none"><a href="index.html#services" role="menuitem">בניית אתרים</a></li>
+      <li class="nav__has-dropdown" role="none" id="dd-marketing">
+        <button class="nav__dd-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown="dd-marketing">
+          שיווק דיגיטלי <span class="nav__plus">+</span>
+        </button>
+        <div class="nav__dropdown nav__dropdown--rich" role="menu" aria-label="שיווק דיגיטלי">
+          <a href="index.html#services" role="menuitem" class="nav__dd-item">
+            <span class="nav__dd-icon">🎯</span>
+            <span class="nav__dd-text"><strong>פרסום בגוגל</strong><small>Google Ads – לידים מדידים</small></span>
+          </a>
+          <a href="index.html#services" role="menuitem" class="nav__dd-item">
+            <span class="nav__dd-icon">📘</span>
+            <span class="nav__dd-text"><strong>פרסום בפייסבוק</strong><small>Meta Ads – קמפיינים ממוקדים</small></span>
+          </a>
+          <a href="index.html#services" role="menuitem" class="nav__dd-item">
+            <span class="nav__dd-icon">🔍</span>
+            <span class="nav__dd-text"><strong>קידום אורגני</strong><small>SEO – תנועה ללא עלות לקליק</small></span>
+          </a>
+          <a href="index.html#services" role="menuitem" class="nav__dd-item">
+            <span class="nav__dd-icon">✉️</span>
+            <span class="nav__dd-text"><strong>אימייל מרקטינג</strong><small>רשימות, אוטומציות וניוזלטרים</small></span>
+          </a>
+        </div>
+      </li>
+      <li class="nav__has-dropdown" role="none" id="dd-design">
+        <button class="nav__dd-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown="dd-design">
+          עיצוב <span class="nav__plus">+</span>
+        </button>
+        <div class="nav__dropdown nav__dropdown--rich" role="menu" aria-label="עיצוב">
+          <a href="index.html#services" role="menuitem" class="nav__dd-item">
+            <span class="nav__dd-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><defs><linearGradient id="g-web" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06B6D4"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs><rect x="2" y="3" width="20" height="13" rx="2" fill="url(#g-web)"/><rect x="4" y="5" width="16" height="9" rx="1" fill="rgba(255,255,255,0.18)"/><line x1="12" y1="16" x2="12" y2="20" stroke="url(#g-web)" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="20" x2="16" y2="20" stroke="url(#g-web)" stroke-width="2" stroke-linecap="round"/><line x1="5.5" y1="8" x2="10" y2="8" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.9"/><line x1="5.5" y1="10.5" x2="13" y2="10.5" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.9"/><line x1="5.5" y1="13" x2="8.5" y2="13" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.9"/></svg></span>
+            <span class="nav__dd-text"><strong>עיצוב אתרים</strong><small>UX/UI מקצועי שממיר מבקרים</small></span>
+          </a>
+          <a href="index.html#services" role="menuitem" class="nav__dd-item">
+            <span class="nav__dd-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><defs><linearGradient id="g-brand" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FBBF24"/><stop offset="100%" stop-color="#F97316"/></linearGradient></defs><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5Z" fill="url(#g-brand)"/><path d="M20 3L20.8 5.2L23 6L20.8 6.8L20 9L19.2 6.8L17 6L19.2 5.2Z" fill="url(#g-brand)" opacity="0.65"/></svg></span>
+            <span class="nav__dd-text"><strong>מיתוג עסקי</strong><small>לוגו, זהות ויזואלית ומדריך מותג</small></span>
+          </a>
+        </div>
+      </li>
+      <li role="none"><a href="index.html#testimonials" role="menuitem">תיק עבודות</a></li>
+      <li role="none"><a href="blog.html" role="menuitem" style="color:#C8FF00;">בלוג</a></li>
+      <li role="none"><a href="index.html#about" role="menuitem">אודות</a></li>
+    </ul>
+
+    <!-- Left: CTA -->
+    <a href="index.html#contact" class="nav__cta-btn nav__cta-standalone">
+      <span class="nav__cta-plus">+</span>
+      דברו איתנו
+    </a>
+
+    <!-- Burger (mobile) -->
+    <button class="nav__burger" id="burger" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobileMenu" role="menu">
+    <a href="index.html#services" role="menuitem">בניית אתרים</a>
+    <a href="index.html#services" role="menuitem">שיווק דיגיטלי</a>
+    <a href="index.html#services" role="menuitem">עיצוב</a>
+    <a href="index.html#testimonials" role="menuitem">תיק עבודות</a>
+    <a href="blog.html" role="menuitem">בלוג</a>
+    <a href="index.html#about" role="menuitem">אודות</a>
+    <a href="index.html#contact" role="menuitem" class="nav__mobile-cta">+ דברו איתנו</a>
+  </div>
+</nav>
+
+  <main>
+    <section class="art-hero">
+      <div class="container">
+        <nav class="art-hero__breadcrumb" aria-label="ניווט ארכיון">
+          <a href="index.html">האוס מדיה</a>
+          <span>›</span>
+          <a href="blog.html">בלוג</a>
+          <span>›</span>
+          SEO
+        </nav>
+        <span class="art-hero__cat">SEO</span>
+        <h1 class="art-hero__title">מחקר מילות מפתח כיצד למצוא את המילים שמביאות לקוחות</h1>
+        <p class="art-hero__subtitle">לפני שכותבים מילה אחת של תוכן, צריך לדעת מה הלקוחות שלכם מחפשים בגוגל. מחקר מילות מפתח נכון הוא ההבדל בין תוכן שאף אחד לא מוצא לבין תוכן שמביא לקוחות כל יום.</p>
+        <div class="art-hero__meta">
+          <span class="art-hero__meta-item">📅 2 מרץ 2026</span>
+          <span class="art-hero__meta-sep">·</span>
+          <span class="art-hero__meta-item">⏱ 8 דקות קריאה</span>
+          <span class="art-hero__meta-sep">·</span>
+          <span class="art-hero__meta-item">✍️ האוס מדיה</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="art-layout container">
+      <article class="art-body">
+
+        <h2 id="what-keywords">מה זה בכלל מחקר מילות מפתח?</h2>
+        <p>מחקר מילות מפתח הוא התהליך שבו מזהים אילו מונחים וביטויים אנשים מקלידים במנועי חיפוש כמו גוגל כאשר הם מחפשים מוצר, שירות, או מידע הקשורים לתחום העסק שלכם. המטרה היא לא רק לדעת מה מחפשים אלא להבין מדוע מחפשים, ואיך לענות על אותה צרכים טוב יותר מכל מתחרה אחר.</p>
+        <p>חשבו על זה כך: אתם מפעילים חברת ניקיון בתל אביב. האם כדאי לקדם את המילה "ניקיון"? מבחינה טכנית כן, זו מילה רלוונטית. מבחינה מעשית לא. מי שמחפש "ניקיון" יכול לחפש כל דבר: ניקוי שטיחים, ניקוי בית, ניקוי מזגנים, אפילו ניקיון גופני. אבל מי שמחפש "חברת ניקיון לבית בתל אביב" הוא לקוח פוטנציאלי ממש חם.</p>
+        <p>מחקר מילות מפתח מקצועי עוזר לכם להבין את השוק שלכם לעומק, לזהות הזדמנויות שהמתחרים שלכם פספסו, ולבנות <a href="article-google-seo-2026.html">אסטרטגיית SEO</a> שמניבה תוצאות מדידות יותר תנועה, יותר לידים, יותר מכירות.</p>
+
+        <h2 id="search-intent">כוונת החיפוש הדבר החשוב ביותר</h2>
+        <p>לפני שמסתכלים על נפח חיפוש ותחרותיות, צריך להבין דבר אחד בסיסי: מה האדם <em>רוצה</em> להשיג כשהוא מחפש את המונח הזה? זוהי כוונת החיפוש (Search Intent), והיא הגורם הקריטי ביותר שמנועי חיפוש מודרניים מתייחסים אליו.</p>
+        <p>יש ארבעה סוגי כוונות עיקריים:</p>
+        <ul>
+          <li><strong>כוונה מידעית (Informational):</strong> המשתמש מחפש מידע "כיצד לנקות שטיח", "מה זה SEO", "איך לבנות אתר". הוא לא בהכרח מוכן לקנות עכשיו, אבל ניתן לבנות אמון ומותג.</li>
+          <li><strong>כוונה ניווטית (Navigational):</strong> המשתמש מחפש אתר ספציפי "פייסבוק לוגין", "האוס מדיה אתר". כאן הוא כבר יודע לאן רוצה להגיע.</li>
+          <li><strong>כוונה מסחרית (Commercial):</strong> המשתמש משווה ושוקל "הבדל בין Wix לוורדפרס", "ביקורות על חברות ניקיון". הוא מתקרב להחלטה.</li>
+          <li><strong>כוונה עסקית (Transactional):</strong> המשתמש רוצה לפעול "הזמן חברת ניקיון תל אביב", "קנה נעלי ספורט אדידס". כאן יש הכי הרבה ערך מסחרי.</li>
+        </ul>
+
+        <div class="art-tip">
+          <div class="art-tip__label">טיפ חשוב</div>
+          <p>תמיד התאימו את סוג הדף לכוונת החיפוש. מילים עם כוונה מידעית מתאימות לבלוג ומאמרים. מילים עם כוונה עסקית מתאימות לדפי שירות ודפי נחיתה. ערבוב ביניהם יפגע בדירוגים שלכם.</p>
+        </div>
+
+        <h2 id="tools">הכלים הטובים ביותר למחקר מילות מפתח</h2>
+        <p>ישנם עשרות כלים למחקר מילות מפתח, אבל לא כולם שווים ולא כולם מתאימים לשוק הישראלי. הנה הכלים שאנחנו ממליצים עליהם:</p>
+
+        <ul class="art-steps">
+          <li>
+            <span class="art-steps__num">1</span>
+            <div class="art-steps__content">
+              <strong>Google Keyword Planner</strong>
+              <span>הכלי החינמי של גוגל עצמו. נגיש דרך חשבון Google Ads ומספק נתונים ישירים על נפחי חיפוש ותחרותיות. מצוין לנקודת פתיחה, אם כי הנתונים לפעמים מוצגים בטווחים רחבים יותר עבור חשבונות ללא קמפיינים פעילים.</span>
+            </div>
+          </li>
+          <li>
+            <span class="art-steps__num">2</span>
+            <div class="art-steps__content">
+              <strong>Google Search Console</strong>
+              <span>אם האתר שלכם כבר קיים, זה הכלי הכי חשוב. הוא מראה בדיוק על אילו מילות מפתח האתר שלכם כבר מופיע בגוגל, כמה קליקים ורשמים קיבלתם, ומה אחוז ההקלקה. נתונים אמיתיים, בחינם לחלוטין.</span>
+            </div>
+          </li>
+          <li>
+            <span class="art-steps__num">3</span>
+            <div class="art-steps__content">
+              <strong>Ubersuggest</strong>
+              <span>כלי חינמי (עם מגבלות) שמציע הצעות למילות מפתח קשורות, נתוני תחרותיות, וניתוח מתחרים. מצוין לעסקים קטנים ובינוניים שמחפשים כלי נגיש ללא תשלום גבוה.</span>
+            </div>
+          </li>
+          <li>
+            <span class="art-steps__num">4</span>
+            <div class="art-steps__content">
+              <strong>Ahrefs ו-SEMrush</strong>
+              <span>הכלים המקצועיים המובילים בתחום. מספקים נתונים מעמיקים על backlinks, מחקר מתחרים, ומעקב דירוגים. מומלצים לעסקים רציניים שמשקיעים ב-SEO לטווח ארוך. עלות של כ-100-200 דולר לחודש.</span>
+            </div>
+          </li>
+          <li>
+            <span class="art-steps__num">5</span>
+            <div class="art-steps__content">
+              <strong>Google Trends</strong>
+              <span>כלי חינמי ומצוין לזיהוי מגמות עונתיות. האם "מזגן" מחפשים יותר בקיץ? (ברור שכן.) האם יש עלייה בחיפושים הקשורים לתחום שלכם? Google Trends יענה על זה.</span>
+            </div>
+          </li>
+        </ul>
+
+        <h2 id="long-tail">Long Tail Keywords הנשק הסודי של עסקים קטנים</h2>
+        <p>Long tail keywords הן מילות מפתח ארוכות וספציפיות יותר. "נעלי ספורט" הן מילת מפתח ראשית (head keyword). "נעלי ריצה לגברים עם בעיות ברך" זו long tail keyword. ההבדל הוא עצום גם בנפח החיפוש וגם בתחרותיות וגם בכוונת הקנייה.</p>
+        <p>מדוע עסקים קטנים צריכים להתמקד ב-long tail? כי ה"מילים הגדולות" כבר תפוסות על ידי מותגים גדולים עם תקציבי SEO של מאות אלפי שקלים. לנסות לדרג על "ביטוח רכב" כעסק קטן זה כמו לנסות להתחרות עם סופרמרקטים ענקיים על מחיר הלחם.</p>
+        <p>אבל "ביטוח רכב לרכב יד שנייה ברמת גן"? פה יש לכם סיכוי ממשי. פחות חיפושים, כן אבל אלו חיפושים ממוקדים מאוד עם כוונת קנייה גבוהה, ותחרות נמוכה משמעותית.</p>
+
+        <div class="art-tip">
+          <div class="art-tip__label">כלל האצבע</div>
+          <p>70%-80% מכלל החיפושים בגוגל הם long tail keywords. הם אמנם מביאים פחות תנועה בנפרד, אבל ביחד הם מהווים את הרוב המכריע של ההזדמנויות. בנו תוכן שעונה על שאלות ספציפיות ותראו תוצאות מהירות יותר מאשר לרדוף אחרי המילים הגדולות.</p>
+        </div>
+
+        <h2 id="competitor-research">מה המתחרים שלכם עושים?</h2>
+        <p>אחד הצעדים החכמים ביותר במחקר מילות מפתח הוא פשוט להסתכל מה עושים המתחרים שלכם. הם כבר השקיעו זמן וכסף כדי לגלות מה עובד למה לא ללמוד מהם?</p>
+        <p>שיטת ניתוח מתחרים פשוטה:</p>
+        <ol>
+          <li>זהו 3-5 מתחרים מרכזיים בתחומכם (חפשו בגוגל את הביטויים הרלוונטיים וראו מי מופיע).</li>
+          <li>הכניסו את האתרים שלהם לכלי כמו Ubersuggest או Ahrefs ובדקו על אילו מילות מפתח הם מדורגים.</li>
+          <li>מצאו "פערים" מילות מפתח שהמתחרים מדורגים עליהן אבל אתם לא. אלו ההזדמנויות שלכם.</li>
+          <li>בדקו גם את איכות התוכן שלהם האם הם עונים על כוונת החיפוש היטב? איפה יש מקום לתוכן טוב יותר?</li>
+        </ol>
+        <p>זכרו: המטרה היא לא לעתיק את המתחרים, אלא להיות טובים מהם. אם המתחרה שלכם כתב מאמר של 500 מילים על נושא מסוים כתבו 1500 מילים עם מידע מעמיק יותר, דוגמאות, ועצות מעשיות.</p>
+
+        <h2 id="how-to-use">איך משלבים מילות מפתח בתוכן בצורה נכונה?</h2>
+        <p>מצאתם את מילות המפתח שלכם עכשיו מה? יש כמה עקרונות חשובים לשילוב מילות מפתח בתוכן שלא יפגעו בטבעיות הכתיבה:</p>
+        <ul>
+          <li><strong>מילת המפתח הראשית בכותרת H1:</strong> ברורה, טבעית, ומדויקת.</li>
+          <li><strong>בפסקה הראשונה:</strong> הכניסו את מילת המפתח הראשית ב-100 המילים הראשונות של הדף.</li>
+          <li><strong>בכותרות משנה (H2, H3):</strong> השתמשו בווריאציות ובמילות מפתח קשורות לא חייב להיות בדיוק אותו ביטוי.</li>
+          <li><strong>צפיפות טבעית:</strong> מילת מפתח ראשית צריכה להופיע 2-4 פעמים בטקסט של 1000 מילים. יותר מזה נראה ספאמי לגוגל ולקוראים.</li>
+          <li><strong>LSI Keywords:</strong> מילים קשורות סמנטית שגוגל מצפה לראות. אם כתבתם על "אנרגיה סולארית", גוגל מצפה לראות גם "פאנלים", "חשמל", "חיסכון", "ממשלה" בלי לכתוב אותם בצורה מלאכותית.</li>
+          <li><strong>Alt text לתמונות:</strong> תארו תמונות עם מילות מפתח רלוונטיות גם גוגל "קורא" את התמונות.</li>
+          <li><strong>Meta description:</strong> כלל את מילת המפתח הראשית בתיאור הדף זה לא ישפיע ישירות על דירוגים אבל ישפיע על אחוז ההקלקה.</li>
+        </ul>
+
+        <div class="art-tip">
+          <div class="art-tip__label">שגיאה נפוצה</div>
+          <p>Keyword stuffing דחיסת מילות מפתח בצורה מוגזמת ומלאכותית הוא עונש ברור מגוגל. אם הטקסט שלכם נשמע כמו רשימת מילות מפתח ולא כמו תוכן שנכתב לבני אדם, זה בעיה. כתבו קודם כל לקוראים גוגל יבין.</p>
+        </div>
+
+        <h2 id="action">מתחילים: 5 צעדים למחקר מילות מפתח ראשון</h2>
+        <p>מוכנים להתחיל? הנה תהליך ברור ומעשי שתוכלו לבצע עוד היום:</p>
+
+        <ul class="art-steps">
+          <li>
+            <span class="art-steps__num">1</span>
+            <div class="art-steps__content">
+              <strong>רשמו את "עולם המושגים" שלכם</strong>
+              <span>כתבו 10-20 מונחים שאתם חושבים שהלקוחות שלכם מחפשים. אל תסנן עדיין רשמו הכל. כלל את שמות השירותים, הבעיות שאתם פותרים, הפתרונות שאתם מציעים, וגם שמות מתחרים.</span>
+            </div>
+          </li>
+          <li>
+            <span class="art-steps__num">2</span>
+            <div class="art-steps__content">
+              <strong>הרחיבו עם Google Keyword Planner</strong>
+              <span>הכניסו את המונחים שרשמתם לכלי ובדקו: נפח חיפוש חודשי, תחרותיות, ומילות מפתח קשורות שלא חשבתם עליהן. רשמו כל הצעה מעניינת.</span>
+            </div>
+          </li>
+          <li>
+            <span class="art-steps__num">3</span>
+            <div class="art-steps__content">
+              <strong>בדקו את "חיפושים קשורים" בגוגל</strong>
+              <span>חפשו את המונחים שלכם בגוגל עצמו ובדקו את הצעות ה-autocomplete ואת ה"חיפושים קשורים" בתחתית הדף. אלו מילות מפתח שאנשים אמיתיים מחפשים נתון זהב.</span>
+            </div>
+          </li>
+          <li>
+            <span class="art-steps__num">4</span>
+            <div class="art-steps__content">
+              <strong>סנן וסדרו עדיפויות</strong>
+              <span>מהרשימה שיש לכם, בחרו 20-30 מילות מפתח שמשלבות: נפח חיפוש סביר (לא חייב להיות גבוה מאוד), תחרותיות שמאפשרת לכם להתחרות, ורלוונטיות גבוהה לעסק שלכם.</span>
+            </div>
+          </li>
+          <li>
+            <span class="art-steps__num">5</span>
+            <div class="art-steps__content">
+              <strong>בנו "מפת תוכן"</strong>
+              <span>הקצו כל מילת מפתח לדף ספציפי באתר שלכם (או לדף עתידי שתצרו). כל דף צריך לטרגט מילת מפתח ראשית אחת ו-2-3 מילות מפתח משניות. כך תמנעו "קניבליזציה" מצב שבו שני דפים מתחרים על אותו מונח.</span>
+            </div>
+          </li>
+        </ul>
+
+        <hr class="art-divider"/>
+
+        <p>מחקר מילות מפתח הוא לא אירוע חד-פעמי זה תהליך מתמשך. השוק משתנה, המתחרים משתנים, ואלגוריתמי גוגל מתעדכנים. הוסיפו יום מחקר מילות מפתח לוח הזמנים שלכם אחת לרבעון לפחות, ותגלו הזדמנויות חדשות לפני שהמתחרים שלכם יגיעו אליהן.</p>
+        <p>רוצים ללמוד עוד על SEO? קראו את המדריך המלא שלנו על <a href="article-google-seo-2026.html">קידום אתרים בגוגל ב-2026</a>, ואם אתם שוקלים בניית אתר חדש, כדאי לקרוא גם על <a href="article-website-platforms.html">בחירת פלטפורמת הבנייה הנכונה</a>. לשירותי SEO מקצועיים, <a href="index.html#services">בדקו את השירותים שלנו</a>.</p>
+
+        <div class="art-cta">
+          <h3>רוצים שנעשה את המחקר בשבילכם?</h3>
+          <p>מחקר מילות מפתח מקצועי הוא הבסיס לכל אסטרטגיית SEO מוצלחת. הצוות שלנו יבצע מחקר מעמיק לתחום שלכם ויבנה אסטרטגיה מותאמת אישית שתביא תנועה אורגנית עם ערך מסחרי אמיתי.</p>
+          <a href="index.html#contact" class="btn">שיחת ייעוץ חינם</a>
+        </div>
+
+      </article>
+
+      <aside class="art-sidebar">
+        <nav class="art-toc" aria-label="תוכן עניינים">
+          <div class="art-toc__title">תוכן עניינים</div>
+          <ul class="art-toc__list">
+            <li><a href="#what-keywords">מה זה מחקר מילות מפתח?</a></li>
+            <li><a href="#search-intent">כוונת החיפוש</a></li>
+            <li><a href="#tools">הכלים הטובים ביותר</a></li>
+            <li><a href="#long-tail">Long Tail Keywords</a></li>
+            <li><a href="#competitor-research">מחקר מתחרים</a></li>
+            <li><a href="#how-to-use">שילוב בתוכן נכון</a></li>
+            <li><a href="#action">5 צעדים ראשונים</a></li>
+          </ul>
+        </nav>
+        <div class="art-sidebar-cta">
+          <h4>רוצים תוצאות?</h4>
+          <p>שיחת ייעוץ ראשונה חינם, ללא התחייבות</p>
+          <a href="index.html#contact" class="btn">דברו איתנו</a>
+        </div>
+      </aside>
+    </div>
+
+    <section class="art-related container">
+      <h2 class="art-related__title">מאמרים נוספים שיעניינו אתכם</h2>
+      <div class="art-related__grid">
+        <a href="article-google-seo-2026.html" class="art-related-card">
+          <span class="art-related-card__cat">SEO</span>
+          <h4>איך לדרג בגוגל ב-2026 המדריך המלא לקידום אורגני</h4>
+          <span>8 דקות קריאה →</span>
+        </a>
+        <a href="article-social-media-mistakes.html" class="art-related-card">
+          <span class="art-related-card__cat">שיווק דיגיטלי</span>
+          <h4>5 טעויות קריטיות בניהול רשתות חברתיות</h4>
+          <span>5 דקות קריאה →</span>
+        </a>
+        <a href="article-website-platforms.html" class="art-related-card">
+          <span class="art-related-card__cat">בניית אתרים</span>
+          <h4>Wix מול וורדפרס מה מתאים לעסק שלכם?</h4>
+          <span>6 דקות קריאה →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  
+  <!-- SEO: Related Services -->
+  <div style="margin:48px 0 0;padding:24px 28px;background:#0e0e12;border:1px solid rgba(200,255,0,.1);border-radius:14px;">
+    <p style="color:#D4D4D8;font-size:0.95rem;margin:0 0 12px;font-weight:600;">שירותים רלוונטיים של האוס מדיה:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;"><a href="seo.html" style="background:rgba(200,255,0,0.08);border:1px solid rgba(200,255,0,0.2);color:#C8FF00;padding:6px 14px;border-radius:100px;font-size:0.88rem;font-weight:600;text-decoration:none;display:inline-block;">קידום אורגני SEO</a><a href="google-ads.html" style="background:rgba(200,255,0,0.08);border:1px solid rgba(200,255,0,0.2);color:#C8FF00;padding:6px 14px;border-radius:100px;font-size:0.88rem;font-weight:600;text-decoration:none;display:inline-block;">Google Ads</a><a href="website-building.html" style="background:rgba(200,255,0,0.08);border:1px solid rgba(200,255,0,0.2);color:#C8FF00;padding:6px 14px;border-radius:100px;font-size:0.88rem;font-weight:600;text-decoration:none;display:inline-block;">בניית אתרים</a></div>
+  </div>
+<footer class="art-footer">
+    <p>© 2026 האוס מדיה. כל הזכויות שמורות.</p>
+    <p><a href="index.html">חזרה לאתר הראשי</a> · <a href="blog.html">כל המאמרים</a> · <a href="index.html#contact">צרו קשר</a></p>
+  </footer>
+
+
+  <!-- Nav JS -->
+  <script>
+    const _nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => _nav.classList.toggle('scrolled', window.scrollY > 50));
+    const _burger = document.getElementById('burger');
+    const _mob = document.getElementById('mobileMenu');
+    if (_burger) _burger.addEventListener('click', () => {
+      const o = _mob.classList.toggle('open');
+      _burger.setAttribute('aria-expanded', o);
+    });
+    document.querySelectorAll('.nav__dd-trigger').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const p = btn.closest('.nav__has-dropdown');
+        const was = p.classList.contains('is-open');
+        document.querySelectorAll('.nav__has-dropdown.is-open').forEach(el => el.classList.remove('is-open'));
+        if (!was) { p.classList.add('is-open'); btn.setAttribute('aria-expanded','true'); }
+        else btn.setAttribute('aria-expanded','false');
+      });
+    });
+    document.addEventListener('click', () =>
+      document.querySelectorAll('.nav__has-dropdown.is-open').forEach(el => el.classList.remove('is-open'))
+    );
+  </script>
+</body>
+</html>
