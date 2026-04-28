@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>בלוג שיווק דיגיטלי | SEO, Google Ads ורשתות – האוס מדיה</title>
+  <meta name="description" content="בלוג שיווק דיגיטלי מקצועי – מדריכים, טיפים ותובנות בנושאי SEO, Google Ads, Meta Ads, בניית אתרים, עריכת וידאו וגרפיקה. כתוב על ידי מומחי האוס מדיה ישר מהשטח." />
+  <link rel="canonical" href="https://www.housemedia.co.il/blog.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
+  <style>
+    /* ===== BLOG PAGE STYLES ===== */
+
+    /* Nav override always scrolled on inner pages */
+    .nav { background: rgba(7,7,8,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav, .nav__inner, .nav__dropdown { z-index: 9999 !important; }
+    .bp-card, .blog-page, .blog-page__grid, .blog-hero { z-index: 1; position: relative; }
+
+    /* Blog Hero */
+    .blog-hero {
+      padding: 140px 0 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(200,255,0,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .blog-hero__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,255,0,0.1);
+      border: 1px solid rgba(200,255,0,0.2);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--lime);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .blog-hero__title {
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .blog-hero__sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Search + Filter Bar */
+    .blog-controls {
+      padding: 0 0 60px;
+      position: sticky;
+      top: 72px;
+      z-index: 100;
+      background: var(--black);
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-controls__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Search input */
+    .blog-search {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+    .blog-search__icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+    .blog-search__input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 12px 20px 12px 48px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 14px;
+      color: var(--white);
+      direction: rtl;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .blog-search__input::placeholder { color: var(--muted); }
+    .blog-search__input:focus {
+      border-color: rgba(200,255,0,0.4);
+      box-shadow: 0 0 0 3px rgba(200,255,0,0.08);
+    }
+    .blog-search__clear {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      padding: 2px 4px;
+      display: none;
+    }
+    .blog-search__clear.visible { display: block; }
+
+    /* Category filters */
+    .blog-cats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .blog-cat {
+      padding: 9px 18px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      font-family: 'Heebo', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .blog-cat:hover {
+      border-color: rgba(200,255,0,0.3);
+      color: var(--white);
+    }
+    .blog-cat.active {
+      background: var(--lime);
+      border-color: var(--lime);
+      color: #000;
+    }
+
+    /* Blog Grid */
+    .blog-page { padding: 60px 0 100px; }
+    .blog-page .container { max-width: 1200px; }
+
+    .blog-page__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Results count */
+    .blog-results-count {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .blog-results-count strong { color: var(--white); }
+
+    /* No results */
+    .blog-no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      display: none;
+    }
+    .blog-no-results.visible { display: block; }
+    .blog-no-results__icon { font-size: 48px; margin-bottom: 16px; }
+    .blog-no-results h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    .blog-no-results p { color: var(--muted); font-size: 14px; }
+
+    /* Card */
+    .bp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, border-color 0.3s;
+      position: relative;
+    }
+    .bp-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(200,255,0,0.2);
+    }
+    .bp-card--featured {
+      grid-column: span 2;
+      flex-direction: row;
+    }
+    .bp-card--featured .bp-card__img { width: 44%; flex-shrink: 0; }
+    .bp-card--featured .bp-card__body { flex: 1; }
+
+    /* Card image placeholder */
+    .bp-card__img {
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+    }
+    .bp-card--featured .bp-card__img { aspect-ratio: unset; }
+    .bp-card__img-inner {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+    .bp-card__img--photo {
+      background: none;
+    }
+    .bp-card__photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .bp-card:hover .bp-card__photo {
+      transform: scale(1.05);
+    }
+
+    /* Category-based gradient backgrounds */
+    .bg-digital  { background: linear-gradient(135deg, #0a1f0a 0%, #1a3a1a 100%); }
+    .bg-seo      { background: linear-gradient(135deg, #0a0a1f 0%, #1a1a3a 100%); }
+    .bg-leads    { background: linear-gradient(135deg, #1f0a0a 0%, #3a1a1a 100%); }
+    .bg-web      { background: linear-gradient(135deg, #0d0d14 0%, #1a1a2e 100%); }
+    .bg-guides   { background: linear-gradient(135deg, #14100a 0%, #2e1f0a 100%); }
+
+    .bp-card__body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+    .bp-card--featured .bp-card__body { padding: 36px; }
+
+    .bp-card__cat {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lime);
+      background: rgba(200,255,0,0.1);
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin-bottom: 14px;
+      align-self: flex-start;
+    }
+    .bp-card__reading {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .bp-card__title {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+    .bp-card--featured .bp-card__title { font-size: 24px; }
+    .bp-card__excerpt {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+    .bp-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+    .bp-card__date { font-size: 12px; color: var(--muted); }
+    .bp-card__link {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--lime);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .bp-card__link:hover { gap: 10px; }
+    .bp-card__link svg { transition: transform 0.2s; }
+    .bp-card:hover .bp-card__link svg { transform: translateX(-4px); }
+
+    /* Featured badge */
+    .bp-card__badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--lime);
+      color: #000;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Footer */
+    .blog-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+    }
+    .blog-footer p { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+    .blog-footer a { color: var(--lime); text-decoration: none; font-weight: 700; }
+    .blog-footer a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .blog-page__grid { grid-template-columns: repeat(2, 1fr); }
+      .bp-card--featured { grid-column: span 2; flex-direction: column; }
+      .bp-card--featured .bp-card__img { width: 100%; aspect-ratio: 16/9; }
+    }
+    @media (max-width: 600px) {
+      .blog-page__grid { grid-template-columns: 1fr; }
+      .bp-card--featured { grid-column: span 1; }
+      .blog-controls__inner { flex-direction: column; align-items: stretch; }
+      .blog-cats { justify-content: flex-start; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "בלוג שיווק דיגיטלי | האוס מדיה",
+    "description": "מדריכים, טיפים ותובנות בנושאי SEO, Google Ads, Meta Ads, בניית אתרים ועריכת וידאו וגרפיקה.",
+    "url": "https://www.housemedia.co.il/blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "האוס מדיה",
+      "url": "https://www.housemedia.co.il",
+      "logo": {"@type": "ImageObject", "url": "https://www.housemedia.co.il/og-image.jpg"}
+    },
+    "inLanguage": "he"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAV identical to index.html -->
+  <nav class="nav scrolled" id="nav" role="navigation" aria-label="ניווט ראשי">
+    <div class="nav__inner">
+
+      <!-- Right: Logo -->
+      <div class="nav__brand">
+        <a href="index.html" class="nav__logo" aria-label="האוס מדיה - דף הבית">
+          <span class="logo-mark">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="100" cy="100" r="96" fill="#1A3A1A" stroke="#5B8C5A" stroke-width="1.5"/>
+              <line x1="30" y1="160" x2="30" y2="60" stroke="#5B8C5A" stroke-width="6" stroke-linecap="round" opacity=".4"/>
+              <line x1="40" y1="100" x2="55" y2="88" stroke="#5B8C5A" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+              <line x1="40" y1="128" x2="55" y2="118" stroke="#5B8C5A" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+              <line x1="168" y1="160" x2="168" y2="55" stroke="#5B8C5A" stroke-width="6" stroke-linecap="round" opacity=".4"/>
+              <line x1="158" y1="95" x2="145" y2="84" stroke="#5B8C5A" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+              <line x1="158" y1="122" x2="145" y2="112" stroke="#5B8C5A" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+              <ellipse cx="100" cy="118" rx="38" ry="32" fill="#F8F6F2"/>
+              <circle cx="100" cy="80" r="34" fill="#F8F6F2"/>
+              <circle cx="72" cy="52" r="14" fill="#1A1A1A"/>
+              <circle cx="128" cy="52" r="14" fill="#1A1A1A"/>
+              <circle cx="72" cy="52" r="7" fill="#3A3A3A"/>
+              <circle cx="128" cy="52" r="7" fill="#3A3A3A"/>
+              <ellipse cx="87" cy="78" rx="11" ry="12" fill="#1A1A1A" transform="rotate(-10,87,78)"/>
+              <ellipse cx="113" cy="78" rx="11" ry="12" fill="#1A1A1A" transform="rotate(10,113,78)"/>
+              <circle cx="87" cy="79" r="5" fill="white"/>
+              <circle cx="113" cy="79" r="5" fill="white"/>
+              <circle cx="88.5" cy="78" r="2.5" fill="#0D0D0D"/>
+              <circle cx="114.5" cy="78" r="2.5" fill="#0D0D0D"/>
+              <circle cx="89.5" cy="77" r="1" fill="white"/>
+              <circle cx="115.5" cy="77" r="1" fill="white"/>
+              <ellipse cx="100" cy="89" rx="5" ry="3.5" fill="#1A1A1A"/>
+              <path d="M95 93 Q100 98 105 93" stroke="#1A1A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <ellipse cx="76" cy="112" rx="14" ry="16" fill="#1A1A1A" opacity=".85"/>
+              <ellipse cx="124" cy="112" rx="14" ry="16" fill="#1A1A1A" opacity=".85"/>
+              <path d="M91 118 Q100 110 109 118" stroke="#5B8C5A" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M94 124 Q100 119 106 124" stroke="#5B8C5A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="100" cy="128" r="2.5" fill="#5B8C5A"/>
+              <circle cx="100" cy="100" r="96" fill="none" stroke="#C8A96E" stroke-width=".5" opacity=".5"/>
+            </svg>
+          </span>
+          <span>האוס מדיה</span>
+        </a>
+      </div>
+
+      <!-- Center: Links -->
+      <ul class="nav__links" role="menubar">
+        <li role="none"><a href="index.html#services" role="menuitem">בניית אתרים</a></li>
+        <li role="none"><a href="editing-graphics.html" role="menuitem">עריכת וידאו וגרפיקה</a></li>
+        <li class="nav__has-dropdown" role="none" id="dd-marketing">
+          <button class="nav__dd-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown="dd-marketing">
+            שיווק דיגיטלי <span class="nav__plus">+</span>
+          </button>
+          <div class="nav__dropdown nav__dropdown--rich" role="menu" aria-label="שיווק דיגיטלי">
+            <a href="index.html#services" role="menuitem" class="nav__dd-item">
+              <span class="nav__dd-icon">🎯</span>
+              <span class="nav__dd-text"><strong>פרסום בגוגל</strong><small>Google Ads – לידים מדידים</small></span>
+            </a>
+            <a href="index.html#services" role="menuitem" class="nav__dd-item">
+              <span class="nav__dd-icon">📘</span>
+              <span class="nav__dd-text"><strong>פרסום בפייסבוק</strong><small>Meta Ads – קמפיינים ממוקדים</small></span>
+            </a>
+            <a href="index.html#services" role="menuitem" class="nav__dd-item">
+              <span class="nav__dd-icon">🔍</span>
+              <span class="nav__dd-text"><strong>קידום אורגני</strong><small>SEO – תנועה ללא עלות לקליק</small></span>
+            </a>
+            <a href="index.html#services" role="menuitem" class="nav__dd-item">
+              <span class="nav__dd-icon">✉️</span>
+              <span class="nav__dd-text"><strong>אימייל מרקטינג</strong><small>רשימות, אוטומציות וניוזלטרים</small></span>
+            </a>
+          </div>
+        </li>
+        <li class="nav__has-dropdown" role="none" id="dd-design">
+          <button class="nav__dd-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown="dd-design">
+            עיצוב <span class="nav__plus">+</span>
+          </button>
+          <div class="nav__dropdown nav__dropdown--rich" role="menu" aria-label="עיצוב">
+            <a href="index.html#services" role="menuitem" class="nav__dd-item">
+              <span class="nav__dd-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><defs><linearGradient id="g-web" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06B6D4"/><stop offset="100%" stop-color="#6366F1"/></linearGradient></defs><rect x="2" y="3" width="20" height="13" rx="2" fill="url(#g-web)"/><rect x="4" y="5" width="16" height="9" rx="1" fill="rgba(255,255,255,0.18)"/><line x1="12" y1="16" x2="12" y2="20" stroke="url(#g-web)" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="20" x2="16" y2="20" stroke="url(#g-web)" stroke-width="2" stroke-linecap="round"/><line x1="5.5" y1="8" x2="10" y2="8" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.9"/><line x1="5.5" y1="10.5" x2="13" y2="10.5" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.9"/><line x1="5.5" y1="13" x2="8.5" y2="13" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.9"/></svg></span>
+              <span class="nav__dd-text"><strong>עיצוב אתרים</strong><small>UX/UI מקצועי שממיר מבקרים</small></span>
+            </a>
+            <a href="index.html#services" role="menuitem" class="nav__dd-item">
+              <span class="nav__dd-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><defs><linearGradient id="g-brand" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FBBF24"/><stop offset="100%" stop-color="#F97316"/></linearGradient></defs><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5Z" fill="url(#g-brand)"/><path d="M20 3L20.8 5.2L23 6L20.8 6.8L20 9L19.2 6.8L17 6L19.2 5.2Z" fill="url(#g-brand)" opacity="0.65"/></svg></span>
+              <span class="nav__dd-text"><strong>מיתוג עסקי</strong><small>לוגו, זהות ויזואלית ומדריך מותג</small></span>
+            </a>
+          </div>
+        </li>
+        <li role="none"><a href="index.html#testimonials" role="menuitem">תיק עבודות</a></li>
+        <li role="none"><a href="blog.html" role="menuitem" style="color:#C8FF00;">בלוג</a></li>
+        <li role="none"><a href="index.html#about" role="menuitem">אודות</a></li>
+      </ul>
+
+      <!-- Left: CTA -->
+      <a href="index.html#contact" class="nav__cta-btn nav__cta-standalone">
+        <span class="nav__cta-plus">+</span>
+        דברו איתנו
+      </a>
+
+      <!-- Burger (mobile) -->
+      <button class="nav__burger" id="burger" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="nav__mobile" id="mobileMenu" role="menu">
+      <a href="index.html#services" role="menuitem">בניית אתרים</a>
+      <a href="index.html#services" role="menuitem">שיווק דיגיטלי</a>
+      <a href="index.html#services" role="menuitem">עיצוב</a>
+      <a href="index.html#testimonials" role="menuitem">תיק עבודות</a>
+      <a href="blog.html" role="menuitem">בלוג</a>
+      <a href="index.html#about" role="menuitem">אודות</a>
+      <a href="index.html#contact" role="menuitem" class="nav__mobile-cta">+ דברו איתנו</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="blog-hero">
+      <div class="container">
+        <div class="blog-hero__tag">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4" fill="#C8FF00"/><circle cx="6" cy="6" r="2" fill="#000"/></svg>
+          ידע שמניע תוצאות
+        </div>
+        <h1 class="blog-hero__title">
+          תוכן שמביא<br /><span class="gradient-text">ערך אמיתי</span>
+        </h1>
+        <p class="blog-hero__sub">טיפים, אסטרטגיות ותובנות מעולם השיווק הדיגיטלי ישר מהשטח</p>
+      </div>
+    </section>
+
+    <!-- SEARCH + FILTERS -->
+    <div class="blog-controls">
+      <div class="blog-controls__inner">
+
+        <!-- Category filters -->
+        <div class="blog-cats" role="group" aria-label="סינון לפי קטגוריה">
+          <button class="blog-cat active" data-cat="הכל">הכל</button>
+          <button class="blog-cat" data-cat="שיווק דיגיטלי">שיווק דיגיטלי</button>
+          <button class="blog-cat" data-cat="לידים">לידים</button>
+          <button class="blog-cat" data-cat="בניית אתרים">בניית אתרים</button>
+          <button class="blog-cat" data-cat="SEO">SEO</button>
+          <button class="blog-cat" data-cat="מדריכים">מדריכים</button>
+        </div>
+
+        <!-- Search -->
+        <div class="blog-search">
+          <span class="blog-search__icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <input
+            type="search"
+            class="blog-search__input"
+            id="blogSearch"
+            placeholder="חפש מאמר..."
+            autocomplete="off"
+            aria-label="חיפוש מאמרים"
+          />
+          <button class="blog-search__clear" id="searchClear" aria-label="נקה חיפוש">✕</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BLOG GRID -->
+    <section class="blog-page">
+      <div class="container">
+
+        <p class="blog-results-count" id="resultsCount">
+          מציג <strong id="resultsNum">9</strong> מאמרים
+        </p>
+
+        <div class="blog-page__grid" id="blogGrid">
+
+          <!-- Article 1 -->
+          <article class="bp-card"
+            data-cat="שיווק דיגיטלי"
+            data-title="5 טעויות שכל עסק עושה בניהול הרשתות החברתיות שלו">
+            <div class="bp-card__img bp-card__img--photo">
+              <img src="social-media-article.jpg" alt="טעויות בניהול רשתות חברתיות" class="bp-card__photo" loading="lazy"/>
+            </div>
+            <div class="bp-card__body">
+              <span class="bp-card__cat">שיווק דיגיטלי</span>
+              <div class="bp-card__reading">⏱ 5 דקות קריאה</div>
+              <h2 class="bp-card__title">5 טעויות שכל עסק עושה בניהול הרשתות החברתיות שלו</h2>
+              <p class="bp-card__excerpt">מפרסמים תוכן אבל לא רואים תוצאות? כנראה שאתם נופלים באחת מהטעויות הקלאסיות האלה וכך תתקנו אותן. המדריך המעשי לניהול נכון של הרשתות.</p>
+              <div class="bp-card__footer">
+                <span class="bp-card__date">15 אפריל 2026</span>
+                <a href="article-social-media-mistakes.html" class="bp-card__link">קראו עוד <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="2" y1="7" x2="12" y2="7" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/><polyline points="8,3 12,7 8,11" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="bp-card"
+            data-cat="SEO"
+            data-title="איך לדרג את האתר שלכם בגוגל ב-2026 המדריך המלא">
+            <div class="bp-card__img bp-card__img--photo">
+              <img src="seo-article.jpg" alt="קידום אתרים בגוגל 2026" class="bp-card__photo" loading="lazy"/>
+            </div>
+            <div class="bp-card__body">
+              <span class="bp-card__cat">SEO</span>
+              <div class="bp-card__reading">⏱ 7 דקות קריאה</div>
+              <h2 class="bp-card__title">איך לדרג את האתר שלכם בגוגל ב-2026 המדריך המלא</h2>
+              <p class="bp-card__excerpt">האלגוריתם של גוגל השתנה. מה עובד היום, מה כבר לא וה-3 דברים שחייבים לעשות כדי להופיע בדף הראשון.</p>
+              <div class="bp-card__footer">
+                <span class="bp-card__date">8 אפריל 2026</span>
+                <a href="article-google-seo-2026.html" class="bp-card__link">קראו עוד <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="2" y1="7" x2="12" y2="7" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/><polyline points="8,3 12,7 8,11" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="bp-card"
+            data-cat="מדריכים"
+            data-title="כמה צריך להשקיע בגוגל אדס המדריך לתקציב נכון">
+            <div class="bp-card__img bp-card__img--photo">
+              <img src="google-ads-article.jpg" alt="כמה להשקיע בגוגל אדס" class="bp-card__photo" loading="lazy"/>
+            </div>
+            <div class="bp-card__body">
+              <span class="bp-card__cat">מדריכים</span>
+              <div class="bp-card__reading">⏱ 4 דקות קריאה</div>
+              <h2 class="bp-card__title">כמה צריך להשקיע בגוגל אדס? המדריך לתקציב נכון</h2>
+              <p class="bp-card__excerpt">אחת השאלות הכי נפוצות שאנו שומעים מעסקים וגם אחת המסוכנות להשיב עליה בגנריות. הנה הגישה הנכונה.</p>
+              <div class="bp-card__footer">
+                <span class="bp-card__date">1 אפריל 2026</span>
+                <a href="article-google-ads-budget.html" class="bp-card__link">קראו עוד <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="2" y1="7" x2="12" y2="7" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/><polyline points="8,3 12,7 8,11" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="bp-card"
+            data-cat="לידים"
+            data-title="7 דרכים להגדיל לידים בעסק שלך בלי להגדיל תקציב">
+            <div class="bp-card__img bp-card__img--photo">
+              <img src="leads-article.jpg" alt="7 דרכים להגדיל לידים" class="bp-card__photo" loading="lazy"/>
+            </div>
+            <div class="bp-card__body">
+              <span class="bp-card__cat">לידים</span>
+              <div class="bp-card__reading">⏱ 6 דקות קריאה</div>
+              <h2 class="bp-card__title">7 דרכים להגדיל לידים בעסק שלך בלי להגדיל תקציב</h2>
+              <p class="bp-card__excerpt">לידים מגיעים ממקומות מפתיעים. גלו אילו שינויים קטנים בדף הנחיתה, בטופס ובפרסום יכולים להכפיל את כמות הפניות שלכם.</p>
+              <div class="bp-card__footer">
+                <span class="bp-card__date">24 מרץ 2026</span>
+                <a href="article-increase-leads.html" class="bp-card__link">קראו עוד <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="2" y1="7" x2="12" y2="7" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/><polyline points="8,3 12,7 8,11" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 5 -->
+          <article class="bp-card"
+            data-cat="בניית אתרים"
+            data-title="מה ההבדל בין אתר ווקס וורדפרס ואתר מותאם אישית">
+            <div class="bp-card__img bp-card__img--photo">
+              <img src="platforms-article.jpg" alt="Wix WordPress אתר מותאם אישית" class="bp-card__photo" loading="lazy"/>
+            </div>
+            <div class="bp-card__body">
+              <span class="bp-card__cat">בניית אתרים</span>
+              <div class="bp-card__reading">⏱ 5 דקות קריאה</div>
+              <h2 class="bp-card__title">מה ההבדל בין Wix, וורדפרס ואתר מותאם אישית?</h2>
+              <p class="bp-card__excerpt">בחירת הפלטפורמה לאתר שלכם היא אחת ההחלטות החשובות ביותר. הנה ניתוח כנה עם יתרונות וחסרונות לכל אחת.</p>
+              <div class="bp-card__footer">
+                <span class="bp-card__date">17 מרץ 2026</span>
+                <a href="article-website-platforms.html" class="bp-card__link">קראו עוד <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="2" y1="7" x2="12" y2="7" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/><polyline points="8,3 12,7 8,11" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 6 -->
+          <article class="bp-card"
+            data-cat="שיווק דיגיטלי"
+            data-title="10 טיפים לניהול עמוד אינסטגרם שמביא לקוחות">
+            <div class="bp-card__img bp-card__img--photo">
+              <img src="instagram-article.jpg" alt="10 טיפים לניהול אינסטגרם" class="bp-card__photo" loading="lazy"/>
+            </div>
+            <div class="bp-card__body">
+              <span class="bp-card__cat">שיווק דיגיטלי</span>
+              <div class="bp-card__reading">⏱ 4 דקות קריאה</div>
+              <h2 class="bp-card__title">10 טיפים לניהול עמוד אינסטגרם שמביא לקוחות</h2>
+              <p class="bp-card__excerpt">אינסטגרם היא לא רק ויטרינה היא מכונת מכירות. הנה 10 הדברים שהכי כדאי לשנות עכשיו בעמוד שלכם.</p>
+              <div class="bp-card__footer">
+                <span class="bp-card__date">10 מרץ 2026</span>
+                <a href="article-instagram-tips.html" class="bp-card__link">קראו עוד <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="2" y1="7" x2="12" y2="7" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/><polyline points="8,3 12,7 8,11" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 7 -->
+          <article class="bp-card"
+            data-cat="SEO"
+            data-title="מחקר מילות מפתח כיצד למצוא את המילים שמביאות לקוחות">
+            <div class="bp-card__img bp-card__img--photo">
+              <img src="keywords-article.jpg" alt="מחקר מילות מפתח" class="bp-card__photo" loading="lazy"/>
+            </div>
+            <div class="bp-card__body">
+              <span class="bp-card__cat">SEO</span>
+              <div class="bp-card__reading">⏱ 8 דקות קריאה</div>
+              <h2 class="bp-card__title">מחקר מילות מפתח כיצד למצוא את המילים שמביאות לקוחות</h2>
+              <p class="bp-card__excerpt">לא כל תנועה שווה. מדריך מלא למחקר מילות מפתח שיגרום לאתר שלכם לדרג לביטויים שהלקוחות שלכם באמת מחפשים.</p>
+              <div class="bp-card__footer">
+                <span class="bp-card__date">2 מרץ 2026</span>
+                <a href="article-keyword-research.html" class="bp-card__link">קראו עוד <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="2" y1="7" x2="12" y2="7" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/><polyline points="8,3 12,7 8,11" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 8 -->
+          <article class="bp-card"
+            data-cat="לידים"
+            data-title="דף נחיתה שממיר המרכיבים של דף שמביא לידים">
+            <div class="bp-card__img bp-card__img--photo">
+              <img src="landing-article.jpg" alt="דף נחיתה שממיר" class="bp-card__photo" loading="lazy"/>
+            </div>
+            <div class="bp-card__body">
+              <span class="bp-card__cat">לידים</span>
+              <div class="bp-card__reading">⏱ 5 דקות קריאה</div>
+              <h2 class="bp-card__title">דף נחיתה שממיר המרכיבים של דף שמביא לידים</h2>
+              <p class="bp-card__excerpt">יש דפי נחיתה שממירים 1% ויש כאלה שממירים 12%. ההבדל הוא לא בתקציב הוא בפרטים הקטנים שרוב העסקים מפספסים.</p>
+              <div class="bp-card__footer">
+                <span class="bp-card__date">20 פברואר 2026</span>
+                <a href="article-landing-page.html" class="bp-card__link">קראו עוד <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="2" y1="7" x2="12" y2="7" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/><polyline points="8,3 12,7 8,11" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 9 -->
+          <article class="bp-card"
+            data-cat="מדריכים"
+            data-title="כל מה שצריך לדעת על שיווק דיגיטלי לעסק קטן מדריך למתחילים">
+            <div class="bp-card__img bp-card__img--photo">
+              <img src="beginners-article.jpg" alt="שיווק דיגיטלי לעסק קטן מדריך למתחילים" class="bp-card__photo" loading="lazy"/>
+            </div>
+            <div class="bp-card__body">
+              <span class="bp-card__cat">מדריכים</span>
+              <div class="bp-card__reading">⏱ 10 דקות קריאה</div>
+              <h2 class="bp-card__title">כל מה שצריך לדעת על שיווק דיגיטלי לעסק קטן מדריך למתחילים</h2>
+              <p class="bp-card__excerpt">מתחילים? הנה המפה המלאה מה לעשות ראשון, איפה להשקיע, ואיך לבנות נוכחות דיגיטלית שמכניסה כסף לעסק שלכם.</p>
+              <div class="bp-card__footer">
+                <span class="bp-card__date">10 פברואר 2026</span>
+                <a href="article-digital-marketing-beginners.html" class="bp-card__link">קראו עוד <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="2" y1="7" x2="12" y2="7" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/><polyline points="8,3 12,7 8,11" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- No results -->
+          <div class="blog-no-results" id="noResults">
+            <div class="blog-no-results__icon">🔍</div>
+            <h3>לא נמצאו מאמרים</h3>
+            <p>נסו מילת חיפוש אחרת או בחרו קטגוריה אחרת</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="blog-footer">
+    <div class="container">
+      <p>רוצים שנעשה בשבילכם את כל זה? <a href="index.html#contact">דברו איתנו →</a></p>
+      <p style="margin-top:4px">© 2026 האוס מדיה. כל הזכויות שמורות. <a href="index.html">חזרה לאתר הראשי</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Nav: scroll effect + dropdowns ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (burger) burger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+    });
+    document.querySelectorAll('.nav__dd-trigger').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const parent = btn.closest('.nav__has-dropdown');
+        const isOpen = parent.classList.contains('is-open');
+        document.querySelectorAll('.nav__has-dropdown.is-open').forEach(el => el.classList.remove('is-open'));
+        if (!isOpen) parent.classList.add('is-open');
+        btn.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.nav__has-dropdown.is-open').forEach(el => el.classList.remove('is-open'));
+    });
+
+    // ── Blog filter + search ──
+    (() => {
+      const cards = [...document.querySelectorAll('.bp-card[data-cat]')];
+      const cats  = [...document.querySelectorAll('.blog-cat')];
+      const searchInput = document.getElementById('blogSearch');
+      const clearBtn    = document.getElementById('searchClear');
+      const noResults   = document.getElementById('noResults');
+      const resultsNum  = document.getElementById('resultsNum');
+
+      let activeCat  = 'הכל';
+
+      // Make entire card clickable
+      cards.forEach(card => {
+        const link = card.querySelector('.bp-card__link');
+        if (link && link.href && !link.href.endsWith('#')) {
+          card.style.cursor = 'pointer';
+          card.addEventListener('click', e => {
+            if (!e.target.closest('a')) window.location.href = link.href;
+          });
+        }
+      });
+      let searchTerm = '';
+
+      function filter() {
+        let visible = 0;
+        cards.forEach(card => {
+          const cat   = card.dataset.cat;
+          const title = (card.dataset.title || '').toLowerCase();
+          const excerpt = card.querySelector('.bp-card__excerpt')?.textContent.toLowerCase() || '';
+          const catMatch  = activeCat === 'הכל' || cat === activeCat;
+          const termMatch = !searchTerm || title.includes(searchTerm) || excerpt.includes(searchTerm);
+          const show = catMatch && termMatch;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+
+        resultsNum.textContent = visible;
+        noResults.classList.toggle('visible', visible === 0);
+
+        // Featured card spans 2 cols only when visible
+        const featured = document.querySelector('.bp-card--featured');
+        if (featured) {
+          featured.style.gridColumn = featured.style.display === 'none' ? '' : 'span 2';
+        }
+      }
+
+      // Category click
+      cats.forEach(btn => {
+        btn.addEventListener('click', () => {
+          cats.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeCat = btn.dataset.cat;
+          filter();
+        });
+      });
+
+      // Search input
+      searchInput.addEventListener('input', () => {
+        searchTerm = searchInput.value.toLowerCase().trim();
+        clearBtn.classList.toggle('visible', searchTerm.length > 0);
+        filter();
+      });
+
+      // Clear search
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchTerm = '';
+        clearBtn.classList.remove('visible');
+        filter();
+        searchInput.focus();
+      });
+    })(); // end blog filter IIFE
+  </script>
+
+</body>
+</html>
